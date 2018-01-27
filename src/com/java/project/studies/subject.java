@@ -1,18 +1,29 @@
-package com.java.project.studies;
+package com.company.jedrzej.MyPg;
 
 import java.util.Scanner;
 
-public abstract class subject {
+public class subject {
     private Scanner scanner=new Scanner(System.in);
     private String subject_name;
     private degree subject_degree=degree.One;
+    private static int subject_counter=0;
 
     public void setSubject_name() {
         this.subject_name = scanner.nextLine();
     }
 
+    public void display_Subject_name() {
+        System.out.println("Subject name: "+this.subject_name);
+    }
+
+    public static int getSubject_counter() {
+        return subject_counter;
+    }
+
     public subject() {
+        System.out.println("Enter subject name: ");
         this.subject_name = scanner.nextLine();
+        subject_counter++;
     }
 
     public String getSubject_name() {
