@@ -1,9 +1,10 @@
-package com.java.project.studies;
+package com.company.jedrzej.MyPg;
 
 public class Main {
 
     public static void main(String[] args) {
-        menu my_menu=new menu();
-        my_menu.display_control_panel();
+	// write your code here
+        menu test=new menu();           //note 1: shift + f6 na nazwie zmiennej - tricky
+        test.display_control_panel();
     }
 }
