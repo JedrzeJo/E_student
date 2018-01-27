@@ -1,17 +1,68 @@
-package com.java.project.studies;
+package com.company.jedrzej.MyPg;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class menu {
 
-    public void student_options(){
+    private static List<student> listOFstudents = new ArrayList<student>();
+    private static List<teacher> listOFteachers = new ArrayList<teacher>();
+    private static List<subject> listOFsubjects= new ArrayList<>();
 
+    private Scanner scanner=new Scanner(System.in);
+
+    public void student_options(){
+        System.out.println("1)Add student \n2)Display student info \n3)Change student status ");
+        int menu_option=scanner.nextInt();
+        switch(menu_option){
+            case 1:
+                listOFstudents.add(new student());
+                break;
+            case 2:
+                System.out.println("Which student You'd like to display?: ");
+                int local1=scanner.nextInt()-1;
+                listOFstudents.get(local1).display_studnet_info();
+                break;
+            case 3:
+                System.out.println("Change student status(typeStudentNo): ");
+                int local2=scanner.nextInt()-1;
+                listOFstudents.get(local2).Change_Student_status();
+                break;
+        }
     }
     public void teacher_options(){
-
+        System.out.println("1)Add teacher \n2)Display teacher info \n3)Change educational degree ");
+        int menu_option=scanner.nextInt();
+        switch(menu_option) {
+            case 1:
+                listOFteachers.add(new teacher());
+                break;
+            case 2:
+                System.out.println("Which TEACHER You'd like to display?: ");
+                int local1 = scanner.nextInt() - 1;
+                listOFteachers.get(local1).display_teacher_info();
+                break;
+            case 3:
+                System.out.println("Change teacher Edu. degree(typeTeacherNo):");
+                int local2 = scanner.nextInt() - 1;
+                listOFteachers.get(local2).setEducation_degree();
+                break;
+        }
     }
     public void subject_options(){
-
+        System.out.println("1)Add subject \n2)Display subject info ");
+        int menu_option=scanner.nextInt();
+        switch(menu_option){
+            case 1:
+                listOFsubjects.add(new subject());
+                break;
+            case 2:
+                System.out.println("Which subject You'd like to display?: ");
+                int local1=scanner.nextInt()-1;
+                listOFsubjects.get(local1).display_Subject_name();
+                break;
+        }
     }
 
     public void display_control_panel(){
@@ -19,7 +70,7 @@ public class menu {
         while(run_menu){
         System.out.println("Welcome in MyPg system! Please choose option by typing it's number & Enter.");
         System.out.println("1) Students \n2) Teachers \n3) Subjects \n4) Exit ");
-        Scanner scanner=new Scanner(System.in);
+        //Scanner scanner=new Scanner(System.in);
         int menu_option=scanner.nextInt();
         switch(menu_option){
             case 1:
