@@ -1,4 +1,4 @@
-package com.java.project.studies;
+package com.company.jedrzej.MyPg;
 
 import java.util.Scanner;
 
