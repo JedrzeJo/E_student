@@ -1,11 +1,19 @@
 package com.java.project.E_student;
 
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner;
 
-public class Student {
+public class Student implements Savable {
     Scanner scanner=new Scanner(System.in);
     String name;
     String surname;
+
+    public Student(String name, String surname) {
+        this.name = name;
+        this.surname = surname;
+    }
+
     Long student_ID;
     boolean student_status=true;
     private static int student_counter=0;
@@ -61,5 +69,18 @@ public class Student {
 
     public boolean getStudent_status() {
         return student_status;
+    }
+
+    @Override
+    public List<String> getDataToSave() {
+        List<String> local=new LinkedList<>();
+        local.add(this.name);
+        local.add(this.surname);
+        return local;
+    }
+
+    @Override
+    public String getFileName() {
+        return "Students.txt";
     }
 }
